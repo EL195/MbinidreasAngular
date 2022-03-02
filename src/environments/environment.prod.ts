@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  url:"https://partners.mbindireads.com/api/",
+  //url : "http://mbindireads.test/api/"
 };

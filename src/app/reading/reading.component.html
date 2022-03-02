@@ -1,0 +1,80 @@
+<main role="main bg-light" class="container-fluid"  style="
+height: 100%;
+left: 0;
+overflow: hidden;
+position: absolute;
+background-repeat: no-repeat;
+background-size: cover;
+background-image: url(assets/images/home-student-dark.svg); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+">
+    <div style="margin-bottom:150px;">
+        <section class="jumbotron text-left pt-4 ">
+        <div class="container">
+            <h1 style="color:white;" class="jumbotron-heading">Reading books</h1>
+            <p style="color:white;" class="lead">Discover books by subject, theme and genre.</p>
+        </div>
+        </section>
+        <div class="container">
+            <!-- By themes -->
+            <div>
+                <div class="row">
+                    <br/>
+                    <div class="col text-left">
+                        <h3 style="color:white;">By themes</h3>
+                    </div>
+                </div>
+                <div class="row text-center">
+                        <div   class="zoom col-2 mb-3" *ngFor="let itemthemes of themes"(click)="goToBooks(itemthemes.id, 'theme')">
+                            <div class="counter">
+                                <i class="fa fa-code fa-2x"></i>
+                                <h2 class="timer count-title count-number" data-to="100" data-speed="1500">{{itemthemes.name}}</h2>
+                             
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <!-- By genres -->
+            <div>
+                <div class="row">
+                    <br/>
+                    <div class="col text-left pt-5">
+                        <h3 style="color:white;">By genres</h3>
+                    </div>
+                </div>
+                <div class="row text-center">
+                        <div   class="zoom col-2 mb-3" *ngFor="let itemgenre of genres" (click)="goToBooks(itemgenre.id, 'genre')">
+                            <div class="counter">
+                                <i class="fa fa-code fa-2x"></i>
+                                <h2 class="timer count-title count-number" data-to="100" data-speed="1500">{{itemgenre.name}}</h2>
+                             
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <!-- By subjects -->
+            <div>
+                <div class="row">
+                    <br/>
+                    <div class="col text-left pt-5">
+                        <h3 style="color:white;">By subjects</h3>
+                    </div>
+                </div>
+                <div class="row text-center">
+                        <div   class="zoom col-2 mb-3" *ngFor="let itemsubject of subjects" (click)="goToBooks(itemsubject.id, 'subject')">
+                            <div class="counter">
+                                <i class="fa fa-code fa-2x"></i>
+                                <h2 class="timer count-title count-number" data-to="100" data-speed="1500">{{itemsubject.name}}</h2>
+                             
+                            </div>
+                        </div>
+                </div>
+            </div>            
+        </div>
+
+   
+    </div>
+
+  </main>

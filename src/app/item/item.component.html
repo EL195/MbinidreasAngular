@@ -1,0 +1,66 @@
+<div class="container-fluid" 
+
+style="
+background-color: #02221f;
+height: 100%;
+overflow: hidden;
+position: absolute;">
+<div class="container pb-5">
+    <div class="row" text-center>
+      <div  class="icon-tab col-xs-12 col-sm-4 col-sm-offset-3">
+          <button class="back" (click)="backClicked()">Backtrack</button>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+
+      </div>
+      <div class="col-xs-12 col-sm-4 ">
+
+     </div>
+    <div class="col-xs-12 col-sm-4">
+
+    </div>
+    </div> 
+
+<!--   <h1>[src]="{url: 'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf', withCredentials:false}"</h1> -->
+<!--   <h1>'http://mbindireads.test'+book.file_path</h1> -->
+
+        <div  class="mt-4 mb-4 p-3 d-flex justify-content-center">
+            <div class="row">
+                <div class="col-1">
+                    <button class="prev" (click)="prevPage()" *ngIf="page > 1">Prev</button>
+                </div>
+                <div class="col-10 text-center">
+                    <div class="card p-4">
+                        <pdf-viewer [src]="{url: 'https://partners.mbindireads.com'+book.file_path, withCredentials:false}"
+                                    [original-size]="false"
+                                    style="height: 50vh; width: 500px;"
+                                    [show-all]="false"
+                                    (click)="testTwo()"
+                                    id="text"
+                                    [page]="page"
+                                    (after-load-complete)="afterLoadComplete($event)"
+                        ></pdf-viewer>
+                        <div *ngIf="isLoaded" style="text-align: center;">
+                          <span *ngIf="type=='hear'">
+                              <button (click)="getSentence()" type="button" class="btn btn-sm btn-outline-secondary"><img src="assets/images/play.svg" alt="Play" width="20"/></button>
+                              <button  (click)="pause()" type="button" class="btn btn-sm btn-outline-secondary"><img src="assets/images/pause.svg" alt="Pause" width="20"/></button>
+                              <button  (click)="resume()" type="button" class="btn btn-sm btn-outline-secondary"><img src="assets/images/resume.svg" alt="Resume" width="20" /></button>
+                          </span>
+                      <!-- <span style="margin-right:50px;"></span> -->
+                       <!--    <button class="prev" (click)="prevPage()" *ngIf="page > 1">Prev</button> -->
+                        <!--   <span>{{ page }} / {{ totalPages }}</span> -->
+                        <!--       <button  class="next" (click)="nextPage()" *ngIf="page < totalPages">Next</button>
+                              <button  class="next" (click)="goToQuiz()" *ngIf="page == totalPages">Quiz</button> -->
+                          
+                      </div>
+                  </div>
+                </div>
+                <div class="col-1">
+                    <button  class="next" (click)="nextPage()" *ngIf="page < totalPages">Next</button>
+                    <button  class="next" (click)="goToQuiz()" *ngIf="page == totalPages">Quiz</button>
+                </div>
+              </div>
+            
+        </div>
+</div>
+</div>

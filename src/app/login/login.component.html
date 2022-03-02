@@ -1,0 +1,67 @@
+<section class="ftco-section" style="
+height: 100%;
+width: 100%;
+left: 0;
+overflow: hidden;
+position: absolute;
+background-repeat: no-repeat;
+background-size: cover;
+background-image: url(assets/images/home-student-dark.svg); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+">
+    <div class="container">
+        <div class="row justify-content-center" >
+            <div class="col-md-12 col-lg-10">
+                <div class="wrap d-md-flex">
+                    <div class="img" style="background-image: url(assets/images/login-page.png);">
+              </div>
+              <div class="login-wrap p-4 p-md-5">
+                  <div class="d-flex">
+                      <div class="w-100">
+                          <h3 class="mb-4">Connexion</h3>
+                      </div>
+<!--                             <div class="w-100">
+                                <p class="social-media d-flex justify-content-end">
+                                    <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+                                    <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+                                </p>
+                            </div> -->
+                  </div>
+                        <form action="#" class="signin-form">
+                      <div class="form-group mb-3">
+                          <label class="label" for="name">Username</label>
+                          <input [(ngModel)]="username" name="username" type="text" class="form-control" placeholder="Username" required>
+                      </div>
+                <div class="form-group mb-3">
+                    <label class="label" for="password">Password</label>
+                  <input [(ngModel)]="code" name="code" type="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <button (click)="login()" style="background-color:#008060!important;border-color:#008060!important;" type="submit" class="form-control btn btn-primary rounded submit px-3">Connexion</button>
+                </div>
+                <div class="form-group d-md-flex">
+                     <!--  <div class="w-50 text-left">
+                        <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+                                  <input type="checkbox" checked>
+                                  <span class="checkmark"></span>
+                                    </label> 
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a style="color:#008060;" href="#">Forgot Password</a>
+                                </div>-->
+                </div>
+              </form>
+            <!--   <p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p> -->
+            </div>
+          </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">Please Wait ... </p>  
+</ngx-spinner>  

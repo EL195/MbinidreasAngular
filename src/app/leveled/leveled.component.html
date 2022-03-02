@@ -1,0 +1,33 @@
+<div class="container-fluid" 
+
+style="
+height: 100%;
+left: 0;
+overflow: hidden;
+position: absolute;
+background-repeat: no-repeat;
+background-size: cover;
+background-image: url(assets/images/home-student-dark.svg); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+">
+<div class="container">
+        <div class="row">
+            <br/>
+            <div class="col text-left pt-5">
+                <h2 style="color:white;">Leveled books</h2>
+                <p style="color:white;" >Choose level to continue reading</p>
+            </div>
+        </div>
+		<div class="row text-center">
+                <div  *ngFor="let item of levels" class="zoom col-1 mb-3" (click)="goToBooks(item.id)">
+                    <div class="counter">
+                        <i class="fa fa-code fa-2x"></i>
+                        <h2 class="timer count-title count-number" data-to="100" data-speed="1500">{{item.name}}</h2>
+                     
+                    </div>
+                </div>
+        </div>
+</div>
+</div>

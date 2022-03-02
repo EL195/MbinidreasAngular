@@ -1,0 +1,60 @@
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container-fluid" style="
+height: 100%;
+width: 100%;
+left: 0;
+overflow: hidden;
+position: absolute;
+background-repeat: no-repeat;
+background-size: cover;
+background-image: url(assets/images/home-student-dark.svg); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-blue" (click)="test()">
+                    <div class="inner">
+                        <h3> {{countR}} </h3>
+                        <p> Leveled books </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                    </div>
+                    <span (click)="goToLeveled()" class="card-box-footer">Read now <i class="fa fa-arrow-circle-right"></i></span>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-green">
+                    <div class="inner">
+                        <h3> {{countReding}} </h3>
+                        <p> Reading room </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-align-justify" aria-hidden="true"></i>
+                    </div>
+                    <span (click)="goToReading()" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-red">
+                    <div class="inner">
+                        <h3>Score : {{score}} </h3>
+                        <p> My stats</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-signal"></i>
+                    </div>
+                    <span href="#" (click)="goToStats()" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,89 @@
+<div class="container-fluid" 
+
+style="
+height: 100%;
+left: 0;
+overflow: hidden;
+position: absolute;
+background-repeat: no-repeat;
+background-size: cover;
+background-image: url(assets/images/home-student-dark.svg); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+">
+<div class="container">
+    <div class="row" text-center>
+      <div (click)="backClicked()" class="icon-tab col-xs-12 col-sm-4 col-sm-offset-3 active">
+          <span class="glyphicon glyphicon-music"></span>
+          <span class="icon-label">Backtrack</span>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+
+      </div>
+      <div class="col-xs-12 col-sm-4 ">
+
+    </div>
+    <div class="col-xs-12 col-sm-4">
+
+    </div>
+    </div> 
+
+  
+
+        <div  class="mt-4 mb-4 p-3 justify-content-center">
+          <div >
+              <div class="card p-4">
+
+                      <div style="background-color: #008060;" class="d-flex align-items-center p-3 my-3 text-white-50 rounded box-shadow">
+                          <img class="mr-3" (click)="listen(quiz[plus].title)" src="assets/images/speakers.svg" alt="Play" width="48"/>
+                          <div class="lh-100">
+                            <h6 class="mb-0 text-white lh-100">{{quiz[plus].title}}</h6>
+                            <small>Questions : {{plus+1}}/{{quiz.length}}</small><br>
+                            <small>Points  : {{this.score}}</small>
+                          </div>
+                        </div>
+                  
+                        <div style="background-color: #00806014;" class="my-3 p-3 rounded box-shadow">
+                          <h6 class="border-bottom border-gray pb-2 mb-0">Choose a answer</h6>
+
+                          <div  *ngFor="let item of quiz[plus].anwsers" class="row bordure" text-center  [ngClass]="{'row': true,
+                          'bordure': active === false,
+                          'active': actu === item.id}">
+                              <div class="col-xs-12 col-sm-2 d-flex">
+                                <img *ngIf="item.type=='text'" (click)="listen(item.title)" src="assets/images/speakers.svg" alt="Play" width="20"/>
+                                <span *ngIf="item.type=='text'" class="media-body num">A</span>
+                              </div>
+                              <div (click)="choose(item, quiz[plus])" class="col-xs-12 col-sm-10">
+                                <div *ngIf="item.type=='text'">
+                                  <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" class="mr-2 rounded">
+                                  <p class="media-body text-black pb-3 mb-0 small lh-125 border-gray titling">
+                                   {{item.title}}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p *ngIf="item.type=='image'" class="media-body text-black pb-3 pt-3 mb-0 small lh-125 border-gray titling">
+                                    <img [src]="'https://partners.mbindireads.com/'+item.image" alt="" width="150">
+                                   </p>
+                                </div>
+
+                            </div>
+                          </div> 
+
+                          <small class="d-block text-right mt-5" >
+                            <span *ngIf="plus+1<quiz.length" (click)="nextstep(plus, item, quiz[plus])" class="next" >Next</span>
+                            <span *ngIf="deja==false">
+                              <span *ngIf="plus==quiz.length-1" (click)="validate(plus, item, quiz[plus])" class="next" >Validate</span>
+                            </span>
+                          </small>
+                        </div>
+                  </div>
+        </div>
+        </div>
+
+
+
+
+
+</div>
+</div>

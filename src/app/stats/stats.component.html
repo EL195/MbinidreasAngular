@@ -1,0 +1,108 @@
+<div class="container-fluid" 
+
+style="
+height: 100%;
+left: 0;
+overflow: hidden;
+position: absolute;
+background-repeat: no-repeat;
+background-size: cover;
+background-image: url(assets/images/home-student-dark.svg); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+">
+<div class="container">
+    <div class="row" text-center>
+      <div (click)="setTab('Overall')" [ngClass]="{
+          'icon-tab': true,
+          'col-xs-12': true,
+          'col-sm-4': true,
+      'col-sm-offset-3': valeur === 'Overall',
+      'active': valeur === 'Overall'}">
+          <span class="glyphicon glyphicon-music"></span>
+          <span class="icon-label">Overall</span>
+      </div>
+      <div (click)="setTab('Reading')" [ngClass]="{
+        'icon-tab': true,
+        'col-xs-12': true,
+        'col-sm-4': true,
+    'col-sm-offset-3': valeur === 'Reading',
+    'active': valeur === 'Reading'}">
+          <span class="glyphicon glyphicon-camera"></span>
+          <span class="icon-label">Reading</span>
+      </div>
+      <div (click)="setTab('Badges')" [ngClass]="{
+        'icon-tab': true,
+        'col-xs-12': true,
+        'col-sm-4': true,
+    'col-sm-offset-3': valeur === 'Badges',
+    'active': valeur === 'Badges'}">
+          <span class="glyphicon glyphicon-facetime-video"></span>
+          <span class="icon-label">Badges</span>
+      </div>
+<!--       <div (click)="setTab('Levels')" [ngClass]="{
+        'icon-tab': true,
+        'col-xs-12': true,
+        'col-sm-4': true,
+    'col-sm-offset-3': valeur === 'Levels',
+    'active': valeur === 'Levels'}">
+        <span class="glyphicon glyphicon-facetime-video"></span>
+        <span class="icon-label">Levels completes</span>
+    </div> -->
+    </div> 
+
+  
+
+  <div *ngIf="valeur=='Overall'" class="mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4">
+        <div class="d-flex flex-column justify-content-center align-items-center"> <button class="btn"> <img src="assets/images/avatar.png" alt="Avatar" class="avatar" height="100" width="100" /></button> <span class="name mt-3"></span> 
+            <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">Hi {{user.first_name}}!
+                Welcome to your stats.</span> <span><i class="fa fa-copy"></i></span> </div>
+        <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number">Score : {{score}} <span class="follow">Points</span></span> </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="valeur=='Badges'">
+  <div class="row" >
+    <!-- Single Advisor-->
+    <div class="col-12 col-sm-6 col-lg-3" *ngFor="let itembadges of badges">
+      <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+        <!-- Team Thumb-->
+        <div class="advisor_thumb"><img [src]="'http://mbindireads.test/'+itembadges.file_path" alt="" width="250">
+          <!-- Social Info-->
+          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+        </div>
+        <!-- Team Details-->
+        <div class="single_advisor_details_info">
+          <h6>{{itembadges.name}}</h6>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="valeur=='Reading'" class="mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4">
+        <table>
+            <th class="p-5">Reads</th>
+            <th class="p-5">Listen</th>
+            <th class="p-5">Quiz</th>
+            <tr>
+                <td class="p-5">{{read}}</td>
+                <td class="p-5">{{hear}}</td>
+                <td class="p-5">{{quiz}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+
+</div>
+</div>

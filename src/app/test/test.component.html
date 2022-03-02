@@ -1,0 +1,146 @@
+<main role="main" style="
+width: 100%;
+left: 0;
+overflow: hidden;
+position: absolute;
+background-repeat: no-repeat;
+background-size: cover;
+background-image: url(assets/images/home-student-dark.svg); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+">
+
+
+
+    <div class="album py-5">
+      <div class="container">
+
+
+        <div class="content-section implementation carousel-demo">
+          <div class="card p-5 mb-5">
+            <h1>Nouveautés</h1>
+              <p-carousel [value]="newBook" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1"
+              [circular]="true" [showIndicators]="false" [showNavigators]="false" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+                  <ng-template let-newBook pTemplate="item">
+                    <div class="item card" style="margin:5px;">
+                      <img [src]="'https://partners.mbindireads.com/'+newBook.image" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">{{newBook.name}}</h5>
+                        <p class="card-text">{{newBook.description}}</p>
+                        <span (click)="testread()" class="btn btn-primary">Read now</span>
+                      </div>
+                    </div>
+                  </ng-template>
+              </p-carousel>
+          </div>
+        </div>
+<!--         <div class="content-section implementation carousel-demo">
+          
+          <div class="card">
+            <h1>Test livres</h1>
+              <p-carousel [value]="newBook" styleClass="custom-carousel" [numVisible]="6" [numScroll]="1"
+              [circular]="true" [autoplayInterval]="0" [responsiveOptions]="responsiveOptions">
+                  <ng-template let-newBook pTemplate="item">
+                      <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" [src]="'https://partners.mbindireads.com/'+newBook.image" alt="Card image cap" >
+                        <div class="card-body">
+                          <h4>{{newBook.name}}</h4>
+                          <p class="card-text">{{newBook.description}}</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                          </div>
+                        </div>
+                      </div>
+
+                  </ng-template>
+              </p-carousel>
+          </div>
+        </div> -->
+        
+
+        <div class="row">
+          <div class="zoom col-md-2" *ngFor="let item of Booksreturned" (click)="moadalOpen(item)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" [src]="'https://partners.mbindireads.com/'+item.book.image" alt="Card image cap" >
+              <div class="card-body">
+                <h4>{{item.book.name}}</h4>
+                <p class="card-text">{{item.book.description}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+
+                  <div class="btn-group">
+
+                    <button  type="button" class="btn btn-sm btn-outline-secondary">
+                      <img *ngIf="item.reading.hear==1" src="assets/images/checked.png" class="checked" alt="Checked" width="10"/>
+                      <img src="assets/images/hear.svg" alt="Hear" width="20"/>
+                    </button>
+
+                    <button *ngIf="mbindi==false" type="button" class="btn btn-sm btn-outline-secondary">
+                      <img  *ngIf="item.reading.read==1" src="assets/images/checked.png" class="checked" alt="Checked" width="10"/>
+                      <img src="assets/images/book.svg" alt="Read" width="20"/>
+                    </button>
+
+
+
+                    <button  type="button" class="btn btn-sm btn-outline-secondary">
+                      <img *ngIf="item.reading.quiz==1" src="assets/images/checked.png" class="checked" alt="Checked" width="10"/>
+                      <img src="assets/images/quiz.svg" alt="Quizz" width="20" />
+                    </button>
+                  </div>
+                  
+                  <!-- <small class="text-muted">9 mins</small> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div *ngIf="clicked==true"  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5  class="modal-title text-white" id="exampleModalLabel">{{items.book.name}}</h5>
+            <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-sm-6">
+                <img class="card-img-top" [src]="'https://partners.mbindireads.com/'+items.book.image" alt="Card image cap" >
+              </div>
+              <div class="col-sm-6">
+                <ul class="list-group">
+
+                  <li (click)="hear(items.book.id)" data-bs-dismiss="modal" class="list-group-item" style="background-color: #C57A00;">
+                    <img src="assets/images/hear.svg" alt="Read" width="20"/> <span class="badge text-white">Listen</span>
+                    <img *ngIf="items.reading.hear==1" src="assets/images/checked.png" class="checked" alt="Checked" width="10"/>
+                  </li>
+
+                  
+                  <li *ngIf="mbindi==false" (click)="read(items.book.id)" data-bs-dismiss="modal" class="list-group-item" style="background-color: #0b3f818a;" >
+                    <img src="assets/images/book.svg" alt="Read" width="20"/> <span class="badge text-white">Read</span>
+                    <img *ngIf="items.reading.read==1" src="assets/images/checked.png" class="checked" alt="Checked" width="10"/>
+                  </li>
+
+                  <li (click)="quiz(items.book.id)" data-bs-dismiss="modal" class="list-group-item" style="background-color: #C54900;">
+                    <img src="assets/images/quiz.svg" alt="Read" width="20"/> <span class="badge text-white">Quiz</span>
+                    <img *ngIf="items.reading.quiz==1" src="assets/images/checked.png" class="checked" alt="Checked" width="10"/>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
