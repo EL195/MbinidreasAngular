@@ -139,6 +139,7 @@ export class BooksComponent implements OnInit{
   }
 
   moadalOpen(item){
+    this.play.playOnClick();
     this.clicked = true;
     this.items = item;
 
@@ -147,6 +148,7 @@ export class BooksComponent implements OnInit{
 
 
   moadalOpens(item){
+    this.play.playOnClick();
     console.log(item);
     this.clickeds = true;
     this.itemss = item;
