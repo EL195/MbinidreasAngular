@@ -16,7 +16,7 @@ background-image: url(assets/images/home-student-dark.svg);
     <div class="album py-5">
       <div class="container">
 
-        <button  (click)="backClicked()" class="return"><img src="assets/images/left.svg" alt="Resume" width="20" /></button>
+        <button  *ngIf="user.age.years_start == 3" (click)="backClicked()" class="return"><img src="assets/images/left.svg" alt="Resume" width="20" /></button>
         <div class="content-section implementation carousel-demo" *ngIf="user.age.years_start == 3">
           <div class="card p-5 mb-5">
             <h1>New books</h1>
