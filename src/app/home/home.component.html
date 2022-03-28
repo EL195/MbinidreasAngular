@@ -2,11 +2,8 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container-fluid" style="
-height: 100%;
-width: 100%;
-left: 0;
-overflow: hidden;
-position: absolute;
+height: 1080px;
+width: 1920px;
 background-repeat: no-repeat;
 background-size: cover;
 background-image: url(assets/images/home-student-dark.svg); 
@@ -15,9 +12,9 @@ background-image: url(assets/images/home-student-dark.svg);
 -o-background-size: cover;
 " >
     <div class="container">
-        <div class="row">
+        <div class="row vertical-center">
             <div class="col-lg-3 col-sm-6">
-                <div class="card-box bg-blue" (click)="test()">
+                <div class="card-box bg-blue" (click)="goToLeveled()">
                     <div class="inner">
                         <h3> {{countR}} </h3>
                         <p> Leveled books </p>
@@ -30,7 +27,7 @@ background-image: url(assets/images/home-student-dark.svg);
             </div>
 
             <div class="col-lg-3 col-sm-6">
-                <div class="card-box bg-green">
+                <div class="card-box bg-green" (click)="goToReading()">
                     <div class="inner">
                         <h3> {{countReding}} </h3>
                         <p> Reading room </p>
@@ -42,7 +39,7 @@ background-image: url(assets/images/home-student-dark.svg);
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <div class="card-box bg-red">
+                <div class="card-box bg-red" (click)="goToStats()">
                     <div class="inner">
                         <h3>Score : {{score}} </h3>
                         <p> My stats</p>

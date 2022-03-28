@@ -1,5 +1,4 @@
 <main role="main bg-light" class="container-fluid"  style="
-height: 100%;
 left: 0;
 overflow: hidden;
 position: absolute;
@@ -12,7 +11,9 @@ background-image: url(assets/images/home-student-dark.svg);
 ">
     <div style="margin-bottom:150px;">
         <section class="jumbotron text-left pt-4 ">
+        
         <div class="container">
+            <button  (click)="backClicked()" class="return"><img src="assets/images/left.svg" alt="Resume" width="20" /></button>
             <h1 style="color:white;" class="jumbotron-heading">Reading books</h1>
             <p style="color:white;" class="lead">Discover books by subject, theme and genre.</p>
         </div>
@@ -23,13 +24,14 @@ background-image: url(assets/images/home-student-dark.svg);
                 <div class="row">
                     <br/>
                     <div class="col text-left">
-                        <h3 style="color:white;">By themes</h3>
+                        <h3 style="color:white;">Themes</h3>
                     </div>
                 </div>
                 <div class="row text-center">
                         <div   class="zoom col-2 mb-3" *ngFor="let itemthemes of themes"(click)="goToBooks(itemthemes.id, 'theme')">
                             <div class="counter">
-                                <i class="fa fa-code fa-2x"></i>
+                                <img *ngIf="itemthemes.image" [src]="'https://partners.mbindireads.com/'+itemthemes.image" alt="Avatar" style="width:100%">
+                                <img *ngIf="!itemthemes.image" src="assets/images/no-image.svg" alt="Avatar" style="width:100%">
                                 <h2 class="timer count-title count-number" data-to="100" data-speed="1500">{{itemthemes.name}}</h2>
                              
                             </div>
@@ -41,13 +43,14 @@ background-image: url(assets/images/home-student-dark.svg);
                 <div class="row">
                     <br/>
                     <div class="col text-left pt-5">
-                        <h3 style="color:white;">By genres</h3>
+                        <h3 style="color:white;">Genres</h3>
                     </div>
                 </div>
                 <div class="row text-center">
                         <div   class="zoom col-2 mb-3" *ngFor="let itemgenre of genres" (click)="goToBooks(itemgenre.id, 'genre')">
                             <div class="counter">
-                                <i class="fa fa-code fa-2x"></i>
+                                <img *ngIf="itemgenre.image" [src]="'https://partners.mbindireads.com/'+itemgenre.image" alt="Avatar" style="width:100%">
+                                <img *ngIf="!itemgenre.image" src="assets/images/no-image.svg" alt="Avatar" style="width:100%">
                                 <h2 class="timer count-title count-number" data-to="100" data-speed="1500">{{itemgenre.name}}</h2>
                              
                             </div>
@@ -59,13 +62,14 @@ background-image: url(assets/images/home-student-dark.svg);
                 <div class="row">
                     <br/>
                     <div class="col text-left pt-5">
-                        <h3 style="color:white;">By subjects</h3>
+                        <h3 style="color:white;">Subjects</h3>
                     </div>
                 </div>
                 <div class="row text-center">
                         <div   class="zoom col-2 mb-3" *ngFor="let itemsubject of subjects" (click)="goToBooks(itemsubject.id, 'subject')">
                             <div class="counter">
-                                <i class="fa fa-code fa-2x"></i>
+                                <img *ngIf="itemsubject.image" [src]="'https://partners.mbindireads.com/'+itemsubject.image" alt="Avatar" style="width:100%">
+                                <img *ngIf="!itemsubject.image" src="assets/images/no-image.svg" alt="Avatar" style="width:100%">
                                 <h2 class="timer count-title count-number" data-to="100" data-speed="1500">{{itemsubject.name}}</h2>
                              
                             </div>

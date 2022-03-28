@@ -21,6 +21,7 @@ export class ItemComponent implements OnInit {
   type: any;
   books : any = [];
   mbindi : boolean = false;
+  stop : boolean = false;
 
   selectedWord: any;
 
@@ -255,10 +256,12 @@ export class ItemComponent implements OnInit {
 
   pause(){
     this.speech.pause();
+    this.stop = true;
   }
 
   resume(){
     this.speech.resume();
+    this.stop = false;
   }
   
   readWord(speech, word){

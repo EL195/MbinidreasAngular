@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnexionService } from '../services/connecion.service';
+import {Location} from '@angular/common';
+import { SoundService } from '../services/sound.service';
 
 @Component({
   selector: 'app-reading',
@@ -22,6 +24,9 @@ export class ReadingComponent implements OnInit {
   constructor(
     private con: ConnexionService,
     private router: Router,
+    private _location: Location,
+    private play: SoundService
+
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +40,9 @@ export class ReadingComponent implements OnInit {
     }
   }
   
+  backClicked() {
+    this._location.back();
+  }
 
   getthemes(){
     this.con.getData("themes").subscribe( async (da:any)=>{
@@ -62,6 +70,7 @@ export class ReadingComponent implements OnInit {
   }
 
   goToBooks(id, type){
+    this.play.playOnClick();
     this.router.navigate(['/books'], { queryParams: {
        item: id,
        type : type

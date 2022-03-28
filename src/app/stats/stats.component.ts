@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnexionService } from '../services/connecion.service';
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'app-stats',
@@ -23,6 +25,7 @@ export class StatsComponent implements OnInit {
   constructor(
     private router: Router,
     private con: ConnexionService,
+    private _location: Location
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +39,10 @@ export class StatsComponent implements OnInit {
     }
   }
 
+
+  backClicked() {
+    this._location.back();
+  }
 
   getScore(user){
     console.log(user)

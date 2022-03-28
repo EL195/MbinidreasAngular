@@ -27,7 +27,8 @@ position: absolute;">
         <div  class="mt-4 mb-4 p-3 d-flex justify-content-center">
             <div class="row">
                 <div class="col-1">
-                    <button class="prev" (click)="prevPage()" *ngIf="page > 1">Prev</button>
+                 <!--    <button class="prev" (click)="prevPage()" *ngIf="page > 1">Prev</button> -->
+                    <button  (click)="prevPage()" (click)="prevPage()" *ngIf="page > 1" class="prev btna"><img src="assets/images/left.svg" alt="Resume" width="20" /></button>
                 </div>
                 <div class="col-10 text-center">
                     <div class="card p-4">
@@ -36,6 +37,7 @@ position: absolute;">
                                     style="height: 50vh; width: 500px;"
                                     [show-all]="false"
                                     (click)="testTwo()"
+                                    [fit-to-page]="true"
                                     id="text"
                                     [page]="page"
                                     (after-load-complete)="afterLoadComplete($event)"
@@ -43,8 +45,8 @@ position: absolute;">
                         <div *ngIf="isLoaded" style="text-align: center;">
                           <span *ngIf="type=='hear'">
                               <button (click)="getSentence()" type="button" class="btn btn-sm btn-outline-secondary"><img src="assets/images/play.svg" alt="Play" width="20"/></button>
-                              <button  (click)="pause()" type="button" class="btn btn-sm btn-outline-secondary"><img src="assets/images/pause.svg" alt="Pause" width="20"/></button>
-                              <button  (click)="resume()" type="button" class="btn btn-sm btn-outline-secondary"><img src="assets/images/resume.svg" alt="Resume" width="20" /></button>
+                              <button *ngIf="stop==false" (click)="pause()" type="button" class="btn btn-sm btn-outline-secondary"><img src="assets/images/pause.svg" alt="Pause" width="20"/></button>
+                              <button  *ngIf="stop==true" (click)="resume()" type="button" class="btn btn-sm btn-outline-secondary"><img src="assets/images/pause.svg" alt="Resume" width="20" /></button>
                           </span>
                       <!-- <span style="margin-right:50px;"></span> -->
                        <!--    <button class="prev" (click)="prevPage()" *ngIf="page > 1">Prev</button> -->
@@ -56,7 +58,7 @@ position: absolute;">
                   </div>
                 </div>
                 <div class="col-1">
-                    <button  class="next" (click)="nextPage()" *ngIf="page < totalPages">Next</button>
+                    <button  (click)="nextPage()" *ngIf="page < totalPages" class="btna"><img src="assets/images/right.svg" alt="Resume" width="20" /></button>
                     <button  class="next" (click)="goToQuiz()" *ngIf="page == totalPages">Quiz</button>
                 </div>
               </div>

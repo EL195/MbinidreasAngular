@@ -13,6 +13,7 @@ background-image: url(assets/images/home-student-dark.svg);
 -o-background-size: cover;
 ">
 <div class="container">
+        <button  (click)="backClicked()" class="return"><img src="assets/images/left.svg" alt="Resume" width="20" /></button>
         <div class="row">
             <br/>
             <div class="col text-left pt-5">
@@ -20,10 +21,12 @@ background-image: url(assets/images/home-student-dark.svg);
                 <p style="color:white;" >Choose level to continue reading</p>
             </div>
         </div>
+        
 		<div class="row text-center">
-                <div  *ngFor="let item of levels" class="zoom col-1 mb-3" (click)="goToBooks(item.id)">
+                <div  *ngFor="let item of levels" class="zoom col-2 mb-3" (click)="goToBooks(item.id)">
                     <div class="counter">
-                        <i class="fa fa-code fa-2x"></i>
+                        <img *ngIf="item.image" [src]="'https://partners.mbindireads.com/'+item.image" alt="Avatar" style="width:100%">
+                        <img *ngIf="!item.image" src="assets/images/no-image.svg" alt="Avatar" style="width:100%">
                         <h2 class="timer count-title count-number" data-to="100" data-speed="1500">{{item.name}}</h2>
                      
                     </div>

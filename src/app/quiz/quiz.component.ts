@@ -3,6 +3,7 @@ import {Location} from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConnexionService } from '../services/connecion.service';
 import Speech from 'speak-tts'
+import { SoundService } from '../services/sound.service';
 
 @Component({
   selector: 'app-quiz',
@@ -10,6 +11,8 @@ import Speech from 'speak-tts'
   styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent implements OnInit {
+
+  nextlevel : boolean = false;
   active: boolean = false;
   sub: any;
   item: any;
@@ -41,6 +44,7 @@ export class QuizComponent implements OnInit {
     private route : ActivatedRoute,
     private con: ConnexionService,
     private router: Router,
+    private play: SoundService,
   ) { }
 
   ngOnInit(): void {
@@ -134,6 +138,7 @@ export class QuizComponent implements OnInit {
     }
   }
 
+
   markRead(quiz) {
     //console.log(quiz)
     let reads = {
@@ -146,12 +151,19 @@ export class QuizComponent implements OnInit {
       console.log(da);
       //this.book = da.data[0];
     })
+    this.nextlevel = true;
+    //this.play.playOnClick();
+    this.play.playOnSuccess();
 
+  }
+
+  return (){
     this.router.navigate(['/books'], { queryParams: {
       item: this.book,
       type : this.type
        }
      });
+     ///this.nextlevel = false;
   }
 
   onChangePage(pageOfItems: Array<any>) {

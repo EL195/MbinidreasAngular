@@ -2,8 +2,15 @@
     margin: 0;
     position: absolute;
     top: 50%;
+    width: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+  }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
   }
 
 body{

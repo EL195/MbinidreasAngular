@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConnexionService } from '../services/connecion.service';
 import {NgbPopoverConfig} from '@ng-bootstrap/ng-bootstrap';
 import {CarouselModule} from 'primeng/carousel';
+import {Location} from '@angular/common';
 import { SoundService } from '../services/sound.service';
 
 
@@ -50,6 +51,7 @@ export class BooksComponent implements OnInit{
     private router:Router,
     private con: ConnexionService,
     private play: SoundService,
+    private _location: Location,
     config: NgbPopoverConfig
   ) { 
         // customize default values of popovers used by this component tree
@@ -110,6 +112,11 @@ export class BooksComponent implements OnInit{
 
   clikced(){
     this.play.playOnClick();
+  }
+
+
+  backClicked() {
+    this._location.back();
   }
   
   hovered(){
@@ -241,6 +248,7 @@ export class BooksComponent implements OnInit{
 
 
   read(item){
+    this.play.playOnHover();
     this.clicked = false;
     this.router.navigate(['/item'], { queryParams: {
       item: item,
@@ -252,6 +260,7 @@ export class BooksComponent implements OnInit{
 
 
   hear(item){
+    this.play.playOnHover();
     this.clicked = false;
     this.router.navigate(['/item'], { queryParams: {
       item: item,
@@ -262,6 +271,7 @@ export class BooksComponent implements OnInit{
   }
 
   quiz(item){
+    this.play.playOnHover();
     this.clicked = false;
     this.router.navigate(['/quiz'], { queryParams: {
       item: item,

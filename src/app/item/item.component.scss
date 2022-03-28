@@ -9,6 +9,10 @@
     margin-top: -125px;
 }
 
+.btna{
+    background: transparent;
+    border: 0px;
+}
 
 .icon-tab {
     text-align : center;
@@ -26,7 +30,7 @@
 
 img, svg {
     vertical-align: middle;
-    width: 100px;
+    width: 60px;
 }
 .back{
     background:#008060;
@@ -269,10 +273,8 @@ img, svg {
 }
 
 .prev{
-    background: #C57A00;
     padding: 10px;
     border-radius: 10px;
-    border-color: #C57A00;
     color: white;
 }
 

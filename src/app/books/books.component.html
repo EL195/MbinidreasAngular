@@ -16,7 +16,7 @@ background-image: url(assets/images/home-student-dark.svg);
     <div class="album py-5">
       <div class="container">
 
-
+        <button  (click)="backClicked()" class="return"><img src="assets/images/left.svg" alt="Resume" width="20" /></button>
         <div class="content-section implementation carousel-demo" *ngIf="user.age.years_start == 3">
           <div class="card p-5 mb-5">
             <h1>New books</h1>
@@ -49,19 +49,19 @@ background-image: url(assets/images/home-student-dark.svg);
                   <div class="btn-group">
 
                     <button  type="button" class="btn btn-sm btn-outline-secondary">
-                      <img *ngIf="item.reading.hear==1" src="assets/images/checked.png" class="checked" alt="Checked" width="10"/>
+                      <img *ngIf="item.reading.hear==1" src="assets/images/checked.png" class="checkeds" alt="Checked" width="10"/>
                       <img src="assets/images/hear.png" alt="Hear" width="20"/>
                     </button>
 
                     <button *ngIf="mbindi==false" type="button" class="btn btn-sm btn-outline-secondary">
-                      <img  *ngIf="item.reading.read==1" src="assets/images/checked.png" class="checked" alt="Checked" width="10"/>
+                      <img  *ngIf="item.reading.read==1" src="assets/images/checked.png" class="checkeds" alt="Checked" width="10"/>
                       <img src="assets/images/read.png" alt="Read" width="20"/>
                     </button>
 
 
 
                     <button  type="button" class="btn btn-sm btn-outline-secondary">
-                      <img *ngIf="item.reading.quiz==1" src="assets/images/checked.png" class="checked" alt="Checked" width="10"/>
+                      <img *ngIf="item.reading.quiz==1" src="assets/images/checked.png" class="checkeds" alt="Checked" width="10"/>
                       <img src="assets/images/quiz.png" alt="Quizz" width="20" />
                     </button>
                   </div>

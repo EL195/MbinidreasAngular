@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnexionService } from '../services/connecion.service';
+import {Location} from '@angular/common';
+import { SoundService } from '../services/sound.service';
 
 @Component({
   selector: 'app-leveled',
@@ -21,6 +23,8 @@ export class LeveledComponent implements OnInit {
   constructor(
     private con: ConnexionService,
     private router: Router,
+    private _location: Location,
+    private play: SoundService
   ) { }
 
   ngOnInit(): void {
@@ -39,7 +43,13 @@ export class LeveledComponent implements OnInit {
     }
     this.con.getDatas("levels", userr).subscribe( async (da:any)=>{
       this.levels = da.data;
+      console.log(this.levels);
     })
+  }
+
+
+  backClicked() {
+    this._location.back();
   }
 
 /*   countBooks(level){
@@ -54,6 +64,7 @@ export class LeveledComponent implements OnInit {
   } */
 
   goToBooks(id){
+    this.play.playOnClick();
     this.router.navigate(['/books'], { queryParams: {
        item: id,
        type : "level"

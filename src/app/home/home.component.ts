@@ -39,15 +39,18 @@ export class HomeComponent implements OnInit {
   }
 
   goToLeveled(){
+    this.play.playOnClick();
     this.router.navigate(['/leveled']);
   }
 
 
   goToReading(){
+    this.play.playOnClick();
     this.router.navigate(['/reading']);
   }
 
   goToStats(){
+    this.play.playOnClick();
     this.router.navigate(['/stats']);
   }
 

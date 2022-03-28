@@ -13,6 +13,7 @@ background-image: url(assets/images/home-student-dark.svg);
 -o-background-size: cover;
 ">
 <div class="container">
+  <button  (click)="backClicked()" class="return"><img src="assets/images/left.svg" alt="Resume" width="20" /></button>
     <div class="row" text-center>
       <div (click)="setTab('Overall')" [ngClass]="{
           'icon-tab': true,
